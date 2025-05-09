@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - JBR Tanching C.O</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo">
+                    <img src="images/logo.ico" alt="Logo" class="logo-image">
+                    <h2 class="logo-text">JBR Tanching C.O</h2>
+                </a>
+            </div>
+
+            <div class="search-bar">
+                <select class="search-dropdown">
+                    <option>All</option>
+                    <option>Fabrics</option>
+                    <option>Sewing Machines</option>
+                    <option>Sewing Parts</option>
+                </select>
+                <input type="text" class="search-input" placeholder="What can we help you find?">
+                <button class="search-btn">
+                    <img src="images/search.png" alt="Search" class="icon-img">
+                </button>
+            </div>
+
+            <div class="nav-icons">
+                <span class="phone-info">
+                    <img src="images/contact.png" alt="Contact" class="icon-img non-clickable"> 
+                    <span class="phone-text">+63 912-3456-789</span>
+                </span>
+                <a href="chat.html" class="chat-link">
+                    <img src="images/chat.png" alt="Chat" class="icon-img">
+                </a>
+                <a href="cart.html" class="cart-link">
+                    <img src="images/cart.png" alt="Cart" class="icon-img">
+                </a>
+
+                <div class="user-dropdown">
+                    <div class="user-info" id="userInfo">
+                        <img src="images/user.png" alt="User" class="icon-img" id="user-icon">
+                        <span class="username" id="usernameDisplay">Guest</span> <!-- Default username -->
+                    </div>
+                    <div class="dropdown-container" id="dropdownMenu">
+                        <a href="myaccount.html" class="dropdown-item">My Account</a>
+                        <a href="orders.html" class="dropdown-item">Orders</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+            </div> 
+        </nav>
+    </header>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login to Your Account</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username/Email</label>
+                        <input type="text" id="username" placeholder="Enter your username or email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="error-message" id="loginError"></div>
+                    <button type="submit" class="submit-btn">LOGIN</button>
+                </form>
+                <div class="or-divider">
+                    <span>OR</span>
+                </div>
+                <button class="google-btn">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-page">
+        <div class="container" id="cartContent">
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>JBR Tanching C.O has been delivering high-quality sewing machines, parts, and fabrics since 2014. We're committed to supporting your creativity with reliable products and expert service.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" id="footerShopLink">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section payment-section">
+                <h3>Payment Methods</h3>
+                <div class="payment-icons">
+                    <img src="images/bank-icon.png" alt="Bank Transfer" class="payment-icon">
+                    <img src="images/gcash-icon.png" alt="GCash" class="payment-icon">
+                    <img src="images/cod-icon.png" alt="Cash on Delivery" class="payment-icon">
+                </div>
+            </div>
+
+            <div class="footer-section contact-section">
+                <div class="footer-logo">
+                    <img src="images/logo.ico" alt="JBR Tanching C.O Logo" class="footer-logo-img">
+                </div>
+                <div class="contact-info">
+                    <h3>JBR Tanching C.O</h3>
+                    <p class="contact-phone">(02) 8123-4567</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2014-2025 JBR TANCHING C.O JOSE ABAD SANTOS, TONDO, MANILA, PHILIPPINES. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+
+</body>
+</html>
