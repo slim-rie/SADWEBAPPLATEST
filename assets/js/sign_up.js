@@ -126,43 +126,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginForm = loginModal.querySelector('.login-form');
     const loginError = document.getElementById('loginError');
     
-    signupForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const isPasswordValid = validatePassword();
-        const doPasswordsMatch = checkPasswordsMatch();
-        
-        if (isPasswordValid && doPasswordsMatch) {
-            const firstName = document.getElementById('firstname').value;
-            localStorage.setItem('username', firstName);
-
-            openModal(successModal);
-        }
-    });
-    
     successLoginBtn.addEventListener('click', function() {
         closeModal(successModal);
         
         openModal(loginModal);
     });
     
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const usernameInput = document.getElementById('username').value;
-        const passwordInput = document.getElementById('password').value;
-        
-        if (usernameInput === 'customer' && passwordInput === 'customer') {
-            localStorage.setItem('isLoggedIn', 'true');
-            closeModal(loginModal);
+    if (loginModal) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
             
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 400); 
-        } else {
-           
-            loginError.textContent = 'Invalid username or password';
-        }
-    });
+            if (usernameInput === 'customer' && passwordInput === 'customer') {
+                localStorage.setItem('isLoggedIn', 'true');
+                closeModal(loginModal);
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 400); 
+            } else {
+                loginError.textContent = 'Invalid username or password';
+            }
+        });
+    }
 
     // Open Modal
     loginBtn.addEventListener('click', function () {

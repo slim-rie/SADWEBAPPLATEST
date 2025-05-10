@@ -1,3 +1,7 @@
+<?php
+$imgPrefix = (strpos($_SERVER['PHP_SELF'], 'includes/auth/') !== false) ? '../../assets/images/' : 'assets/images/';
+$cssPath = (strpos($_SERVER['PHP_SELF'], 'includes/auth/') !== false) ? '../../assets/css/style.css' : 'assets/css/style.css';
+?>
 <footer>
         <div class="container footer-grid">
             <div class="footer-section">
@@ -20,15 +24,15 @@
             <div class="footer-section payment-section">
                 <h3>Payment Methods</h3>
                 <div class="payment-icons">
-                    <img src="assets/images/bank-icon.png" alt="Bank Transfer" class="payment-icon">
-                    <img src="assets/images/gcash-icon.png" alt="GCash" class="payment-icon">
-                    <img src="assets/images/cod-icon.png" alt="Cash on Delivery" class="payment-icon">
+                    <img src="<?php echo $imgPrefix; ?>bank-icon.png" alt="Bank Transfer" class="payment-icon">
+                    <img src="<?php echo $imgPrefix; ?>gcash-icon.png" alt="GCash" class="payment-icon">
+                    <img src="<?php echo $imgPrefix; ?>cod-icon.png" alt="Cash on Delivery" class="payment-icon">
                 </div>
             </div>
 
             <div class="footer-section contact-section">
                 <div class="footer-logo">
-                    <img src="assets/images/logo.ico" alt="JBR Tanching C.O Logo" class="footer-logo-img">
+                    <img src="<?php echo $imgPrefix; ?>logo.ico" alt="JBR Tanching C.O Logo" class="footer-logo-img">
                 </div>
                 <div class="contact-info">
                     <h3>JBR Tanching C.O</h3>
@@ -41,7 +45,6 @@
         </div>
     </footer>
 
-    <link rel="stylesheet" href="assets/css/style.css">
     <script src="js/main.js"></script>
 </body>
 </html>

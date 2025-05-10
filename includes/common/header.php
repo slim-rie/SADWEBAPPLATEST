@@ -2,6 +2,11 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+if (basename($_SERVER['PHP_SELF']) !== 'sign_up.php') {
+    include_once __DIR__ . '/../../includes/common/chat_modal.php';
+    // If you have a login modal include, add it here as well
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <title>JBR Tanching C.O</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <base href="/JBR/">
+    <base href="/SADWEBAPPLITEST/SADWEBAPPLATEST/">
 </head>
 <body>
     <header>

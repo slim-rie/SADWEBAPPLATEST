@@ -51,6 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Set success message
                 $successMessage = 'Account created successfully! You can now log in.';
+                // Redirect to login page
+                header('Location: login.php');
+                exit;
             }
         } catch (PDOException $e) {
             $errors[] = 'Database error: ' . $e->getMessage();
@@ -68,6 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Sign Up - JBR Tanching C.O</title>
     <link rel="stylesheet" href="../../assets/css/sign_up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <?php $cssPath = (strpos($_SERVER['PHP_SELF'], 'includes/auth/') !== false) ? '../../assets/css/style.css' : 'assets/css/style.css'; ?>
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
 </head>
 <body>
     <header>
@@ -141,6 +146,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="login-link">Have an account? <a href="#" id="signInLink">Sign in</a></p>
         </form>
         
+        <?php if (!empty($successMessage)): ?>
+            <div class="success-message">
+                <?php echo htmlspecialchars($successMessage); ?>
+            </div>
+        <?php endif; ?>
+
         <div class="or-divider">
             <span>OR</span>
         </div>
@@ -150,48 +161,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fab fa-google"></i> Continue with Google
         </button>
 </section>
-    
-<div class="modal" id="loginModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Login to Your Account</h3>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <form class="login-form" id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Username/Email</label>
-                        <input type="text" id="username" placeholder="Enter your username or email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter your password">
-                    </div>
-                    <div class="error-message" id="loginError"></div>
-                    <button type="submit" class="submit-btn">LOGIN</button>
-                </form>
-                <div class="or-divider">
-                    <span>OR</span>
-                </div>
-                <button class="google-btn" onclick="window.location.href='redirect.php'">
-                    <i class="fab fa-google"></i> Continue with Google
-                </button>
-                <p class="signup-link">Don't have an account? 
-                <a href="includes/auth/sign_up.php">Sign Up</a>
-            </div>
-        </div>
-    </div>
-
-   <div class="success-modal" id="successModal">
-    <div class="modal-overlay"></div>
-    <div class="success-modal-content">
-        <h3><i class="fas fa-check-circle"></i> Account Created Successfully!</h3>
-        <p>Thank you for signing up. You can now login to access your account.</p>
-        <button class="success-btn" id="successLoginBtn">LOGIN NOW</button>
-    </div>
-</div>
-  
 
     <script src="../../assets/js/sign_up.js"></script>
 

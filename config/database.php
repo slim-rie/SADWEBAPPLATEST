@@ -1,6 +1,6 @@
 <?php 
 $host = 'localhost'; 
-$dbname = 'JBR'; 
+$dbname = 'sadprojectdb'; 
 $username = 'root'; 
 $password = ''; 
 try { 

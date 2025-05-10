@@ -267,11 +267,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             dropdownMenu.innerHTML = `
                 <button class="login-btn" id="loginBtn">LOGIN</button>
-                <button class="signup-btn" onclick="window.location.href='sign_up.php'">SIGN UP</button>
+                <button class="signup-btn" id="signupBtn">SIGN UP</button>
             `;
             
             document.getElementById('loginBtn').addEventListener('click', function() {
                 openLoginModal();
+            });
+            document.getElementById('signupBtn').addEventListener('click', function() {
+                // Close any open modals before redirecting
+                const loginModal = document.getElementById('loginModal');
+                if (loginModal) {
+                    loginModal.classList.remove('show-modal');
+                    document.body.style.overflow = '';
+                }
+                window.location.href = 'includes/auth/sign_up.php';
             });
             
             document.getElementById('sewingMachinesCard').onclick = function() {
